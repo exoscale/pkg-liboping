@@ -1,3 +1,11 @@
+liboping (1.6.1+2.g207d51d-2build1+exo1) precise; urgency=medium
+
+  * d/patches: add scalability patch from:
+     https://github.com/octo/liboping/pull/11
+  * d/patches: remove kFreeBSD patch we don't care about.
+
+ -- Vincent Bernat <bernat@debian.org>  Wed, 29 Mar 2017 11:10:01 +0200
+
 liboping (1.6.1+2.g207d51d-2build1) precise; urgency=low
 
   * Rebuild for Perl 5.14.
