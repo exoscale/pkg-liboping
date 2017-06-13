@@ -1,0 +1,30 @@
+From: "Barak A. Pearlmutter" <barak+git@pearlmutter.net>
+Date: Mon, 12 Oct 2015 14:07:43 +0100
+Subject: autoupdate and enable automake -Wall
+
+---
+ configure.ac | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 6ac83f9..df5b612 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -9,7 +9,7 @@ AC_INIT([liboping],
+ AC_CONFIG_SRCDIR([src/liboping.c])
+ AC_CONFIG_HEADERS([src/config.h])
+ AC_CONFIG_MACRO_DIR([m4])
+-AM_INIT_AUTOMAKE([dist-bzip2])
++AM_INIT_AUTOMAKE([dist-bzip2 -Wall])
+ AC_LANG([C])
+ 
+ AC_PREFIX_DEFAULT("/opt/oping")
+@@ -54,7 +54,7 @@ LT_INIT([dlopen])
+ m4_ifdef([PKG_INSTALLDIR], [PKG_INSTALLDIR], [])
+ 
+ AC_ARG_WITH(pkgconfigdir,
+-	    AC_HELP_STRING([--with-pkgconfigdir], [Use the specified pkgconfig dir (default is libdir/pkgconfig)]),
++	    AS_HELP_STRING([--with-pkgconfigdir], [Use the specified pkgconfig dir (default is libdir/pkgconfig)]),
+ 	    [pkgconfigdir="${withval}"],
+ 	    [pkgconfigdir='${libdir}/pkgconfig'])
+ AC_SUBST([pkgconfigdir])

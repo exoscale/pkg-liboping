@@ -3,18 +3,21 @@ Section: libs
 Priority: optional
 Maintainer: Sebastian Harl <tokkee@debian.org>
 Uploaders: Barak A. Pearlmutter <bap@debian.org>
-Build-Depends: debhelper (>= 7), dpkg-dev (>= 1.14.13), autotools-dev,
+Build-Depends: debhelper (>= 10),
+	pkg-config,
 	chrpath,
-	perl, perl-modules,
-	libncurses5-dev
-Standards-Version: 3.9.2
-Homepage: http://verplant.org/liboping/
-Vcs-Git: git://git.tokkee.org/pkg-liboping.git
-Vcs-Browser: http://git.tokkee.org/?p=pkg-liboping.git
+	perl,
+	libncursesw5-dev
+Standards-Version: 3.9.8
+Homepage: http://noping.cc
+Vcs-Git: git://github.com/barak/liboping.git
+Vcs-Browser: https://github.com/barak/liboping
 
 Package: liboping-dev
 Section: libdevel
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: liboping0 (= ${binary:Version}), ${misc:Depends}
 Conflicts: liboping0-dev
 Replaces: liboping0-dev
@@ -26,6 +29,8 @@ Description: C/C++ library to generate ICMP ECHO_REQUESTs (development files)
 
 Package: liboping0
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: C/C++ library to generate ICMP ECHO_REQUESTs
  liboping features pinging multiple hosts in parallel using IPv4 or IPv6
@@ -36,6 +41,7 @@ Description: C/C++ library to generate ICMP ECHO_REQUESTs
 Package: oping
 Section: net
 Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, liboping0 (>= ${source:Upstream-Version}),
  ${misc:Depends}
 Description: sends ICMP_ECHO requests to network hosts
@@ -51,6 +57,7 @@ Description: sends ICMP_ECHO requests to network hosts
 Package: libnet-oping-perl
 Section: perl
 Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${perl:Depends}, ${shlibs:Depends},
  liboping0 (>= ${source:Upstream-Version}), ${misc:Depends}
 Description: module for ICMP latency measurement
@@ -58,4 +65,3 @@ Description: module for ICMP latency measurement
  "ping packets") and measuring the time that elapses until the reception of an
  ICMP ECHO_REPLY packet (also known as "pong"). It supports pinging multiple
  hosts in parallel using IPv4 or IPv6 transparently.
-

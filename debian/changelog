@@ -1,8 +1,109 @@
-liboping (1.6.1+2.g207d51d-2build1) precise; urgency=low
+liboping (1.10.0-1) unstable; urgency=medium
 
-  * Rebuild for Perl 5.14.
+  * New upstream release
+  * dh10
 
- -- Colin Watson <cjwatson@ubuntu.com>  Tue, 15 Nov 2011 20:08:43 +0000
+ -- Barak A. Pearlmutter <bap@debian.org>  Tue, 23 May 2017 22:12:19 +0100
+
+liboping (1.9.0-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 24 Jul 2016 15:26:03 +0200
+
+liboping (1.8.0-2) unstable; urgency=medium
+
+  * Accept audible ping patch (closes: #801068)
+  * Regenerating package should fix gzip timestamp issue (closes: #749708)
+  * Swizzle packaging repo pointer to active package maintenance repo
+  * Remove build dependency on perl-modules per lintian
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Mon, 12 Oct 2015 13:59:13 +0100
+
+liboping (1.8.0-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Wed, 10 Dec 2014 22:26:38 +0000
+
+liboping (1.7.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Remove quilt patches, functionality is upstream
+  * Bump standards version, no changes required
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Tue, 21 Oct 2014 06:56:06 +0100
+
+liboping (1.6.2-6.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix "hardcodes /usr/lib/perl5":
+    use executable d/libnet-oping-perl.install file, expanding paths with
+    $Config{vendorarch}.
+    (Closes: #752710)
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 02 Aug 2014 18:44:16 +0200
+
+liboping (1.6.2-6) unstable; urgency=medium
+
+  * build dependency on pkg-config (closes: 749058)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Tue, 27 May 2014 17:02:04 +0100
+
+liboping (1.6.2-5) unstable; urgency=medium
+
+  * merge upstream mods
+  * enable "pkg-config oping"
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Thu, 22 May 2014 23:19:13 +0100
+
+liboping (1.6.2-4) unstable; urgency=low
+
+  * always rebuild man pages (closes: 733341)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Tue, 14 Jan 2014 13:44:56 +0000
+
+liboping (1.6.2-3) unstable; urgency=medium
+
+  * prettyping patch requires swizzling build dependency from libncurses
+    to libncursesw (oops!)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Fri, 27 Dec 2013 15:44:51 +0100
+
+liboping (1.6.2-2) unstable; urgency=low
+
+  * remove phony target declarations from debian/rules (closes: #720008)
+  * dh 9
+  * bump standards version
+  * remove unused/uninformative debian/ files: *.dirs, liboping.docs, README
+  * stop installing docs COPYING, INSTALL, NEWS, replicated upstream changelog
+  * print rpath before deleting it (when none, can remove chrpath removal code)
+  * enable multiarch support
+  * add quilt patch with prettyping support (closes: #731207)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Thu, 26 Dec 2013 16:58:42 +0100
+
+liboping (1.6.2-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Thu, 02 Feb 2012 23:00:14 +0000
+
+liboping (1.6.1+2.g207d51d-3) unstable; urgency=low
+
+  * Update/modernize debian packaging info:
+    - Bump to dh 8.
+    - Use dh and override_* to dramatically shorten debian/rules.
+    - Use dh --parallel for multicore goodness.
+    - Use dh --with autoreconf to build derived files like ./configure.
+    - Use dh_xxx, e.g. dh_lintian, to reduce debian/rules boilerplate.
+    - Generalise debian/*.install files
+    - Single debian patch source option: when operative see git patches.
+    - Trim trailing whitespace.
+    - Convert officially depricated constructs to blessed replacements.
+  * git ignore debian build debris.
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 16 Oct 2011 14:33:33 +0100
 
 liboping (1.6.1+2.g207d51d-2) unstable; urgency=low
 
